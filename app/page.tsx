@@ -1,11 +1,5 @@
-import Hero from './components/Hero';
-import Newest from './components/Newest.tsx';
+import Home from '@/components/Home';
 
 export default function HomePage() {
-  return (
-    <>
-      <Hero />
-      <Newest />
-    </>
-  );
+  return <Home />;
 }

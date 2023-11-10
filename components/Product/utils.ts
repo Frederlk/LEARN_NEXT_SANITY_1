@@ -1,5 +1,5 @@
 import { client } from '@/lib/sanity';
-import { IProduct } from './interfaces';
+import { IFullProduct } from './interfaces';
 
 export async function getProduct(slug: string) {
   const query = `*[_type == 'product' && slug.current == "${slug}"][0] {
@@ -12,7 +12,7 @@ export async function getProduct(slug: string) {
     images,
   }`;
 
-  const data: IProduct = await client.fetch(query);
+  const data: IFullProduct = await client.fetch(query);
 
   return data;
 }

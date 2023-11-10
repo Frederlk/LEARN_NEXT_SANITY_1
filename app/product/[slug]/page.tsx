@@ -1,5 +1,11 @@
-import Product from '@/app/components/Product';
+import Product, { getProduct } from '@/components/Product';
 
-export default function ProductPage({ params }: { params: { slug: string } }) {
-  return <Product slug={params.slug} />;
+export default async function ProductPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const data = await getProduct(params.slug);
+
+  return <Product product={data} />;
 }

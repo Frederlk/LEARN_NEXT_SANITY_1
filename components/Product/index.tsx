@@ -1,23 +1,22 @@
-import ImageGallery from '@/app/components/ImageGallery';
-import { getProduct } from './utils';
+import ImageGallery from '@/components/ImageGallery';
 import { Button } from '@/components/ui/button';
 import { Star, Truck } from 'lucide-react';
+import { IFullProduct } from './interfaces';
 
-export default async function Product({ slug }: { slug: string }) {
-  const data = await getProduct(slug);
-
+export * from './utils';
+export default async function Product({ product }: { product: IFullProduct }) {
   return (
     <div className="bg-white pb-6 sm:pb-8 lg:pb-12">
       <div className="mx-auto max-w-screen-xl px-4 md:px-8">
         <div className="grid gap-8 md:grid-cols-2">
-          <ImageGallery images={data.images} />
+          <ImageGallery images={product.images} />
           <div className="md:py-8">
             <div className="mb-2 md:mb-3">
               <span className="mb-0.5 inline-block text-gray-500">
-                {data.categoryName}
+                {product.categoryName}
               </span>
               <h2 className="text-2xl font-bold text-gray-800 lg:text-3xl">
-                {data.name}
+                {product.name}
               </h2>
             </div>
             <div className="mb-6 flex items-center gap-3 md:mb-10">
@@ -32,10 +31,10 @@ export default async function Product({ slug }: { slug: string }) {
             <div className="mb-4">
               <div className="flex items-center gap-2">
                 <span className="text-xl font-bold text-gray-800 md:text-2xl">
-                  ${data.price}
+                  ${product.price}
                 </span>
                 <span className="mb-0.5 text-red-500 line-through">
-                  ${data.price + 30}
+                  ${product.price + 30}
                 </span>
               </div>
 
@@ -55,7 +54,7 @@ export default async function Product({ slug }: { slug: string }) {
             </div>
 
             <p className="mt-12 text-base text-gray-500 tracking-wide">
-              {data.description}
+              {product.description}
             </p>
           </div>
         </div>

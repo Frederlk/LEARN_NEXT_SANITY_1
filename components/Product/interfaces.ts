@@ -1,4 +1,4 @@
-export interface IProduct {
+export interface IFullProduct {
   _id: string;
   name: string;
   slug: string;
