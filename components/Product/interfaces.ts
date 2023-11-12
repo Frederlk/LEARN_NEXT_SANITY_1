@@ -4,6 +4,7 @@ export interface IFullProduct {
   slug: string;
   categoryName: string;
   price: number;
+  price_id: string;
   description: string;
   images: any[];
 }

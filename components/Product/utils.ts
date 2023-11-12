@@ -5,6 +5,7 @@ export async function getProduct(slug: string) {
   const query = `*[_type == 'product' && slug.current == "${slug}"][0] {
     _id,
     price,
+    price_id,
     name,
     description,
     "slug": slug.current,

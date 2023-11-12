@@ -1,6 +1,10 @@
-import ImageGallery from '@/components/ImageGallery';
-import { Button } from '@/components/ui/button';
 import { Star, Truck } from 'lucide-react';
+
+import ImageGallery from '@/components/ImageGallery';
+import AddToCart from '@/components/AddToCart';
+import Checkout from '@/components/Checkout';
+import { Button } from '@/components/ui/button';
+
 import { IFullProduct } from './interfaces';
 
 export * from './utils';
@@ -49,8 +53,24 @@ export default async function Product({ product }: { product: IFullProduct }) {
             </div>
 
             <div className="flex gap-2.5">
-              <Button>Add To Bag</Button>
-              <Button variant="secondary">Checkout Now</Button>
+              <AddToCart
+                currency="USD"
+                description={product.description}
+                image={product.images[0]}
+                name={product.name}
+                price={product.price}
+                key={product._id}
+                price_id={product.price_id}
+              />
+              <Checkout
+                currency="USD"
+                description={product.description}
+                image={product.images[0]}
+                name={product.name}
+                price={product.price}
+                key={product._id}
+                price_id={product.price_id}
+              />
             </div>
 
             <p className="mt-12 text-base text-gray-500 tracking-wide">
