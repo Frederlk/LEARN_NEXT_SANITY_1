@@ -1,5 +1,7 @@
 import Category, { getCategoryProducts } from '@/components/Category';
 
+export const dynamic = 'force-dynamic';
+
 export default async function CategoryPage({
   params,
 }: {

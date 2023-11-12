@@ -1,3 +1,4 @@
+
 export default {
   name: 'category',
   type: 'document',
